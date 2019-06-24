@@ -37,3 +37,23 @@ Route::get("/account/signup","AuthController::signup");
 
 # App Routes [User Dashboard]
 Route::get("/user/blank","UserController::blank");
+
+Route::get("/op",function(){
+    return view("AccountSetup/index");
+});
+
+Route::get("/aboutbusiness",function(){
+    return view("AccountSetup/aboutyourbusiness");
+});
+
+Route::get("/inputaddress",function(){
+    return view("AccountSetup/address");
+});
+
+Route::get("/subscribers",function(){
+    return view("AccountSetup/subscribers");
+});
+
+Route::get("/connectyoursm",function(){
+    return view("AccountSetup/connectyoursm");
+});
