@@ -35,5 +35,13 @@ Route::get("/contact", "BaseController::contact");
 Route::get("/account/signin","AuthController::signin");
 Route::get("/account/signup","AuthController::signup");
 
+Route::post("/account/signin","AuthController::signin");
+Route::post("/account/signup","AuthController::signup");
+
+Route::get("/account/success/w/verify","AuthController::verify");
+
 # App Routes [User Dashboard]
 Route::get("/user/blank","UserController::blank");
+
+Route::get("/user/dashboard","UserController::dashboard");
+Route::get("/user/compose","UserController::compose");

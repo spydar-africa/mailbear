@@ -18,9 +18,18 @@ use App\Core\Engine\Router\Request;
  * }
  * */ 
 
+HasPermission("user","account/signin");
 class UserController extends Controller {
 
     public function blank(){
         return view("app/blank");
+    }
+
+    public function dashboard(){
+        return view("app/dashboard");
+    }
+
+    public function compose(){
+        return view("app/compose");
     }
 }

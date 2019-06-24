@@ -24,7 +24,8 @@ $Cores = [
     ],
 
     "helpers" => [
-        "fs" => "core/helper/fs.php"
+        "fs" => "core/helper/fs.php",
+        "mailer" => "core/helper/mailer.php"
     ],
 ];
 
@@ -35,7 +36,7 @@ $dbConnection = [
     'PORT' => '',
     'USER' => 'root',
     'PASSWORD' => '',
-    'DBNAME' => '',
+    'DBNAME' => 'mailbear',
     'CHARSET' => 'UTF-8'
 ];
 

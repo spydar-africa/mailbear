@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Fs;
+use App\Admin\Auth;
 use App\Helpers\Mailer;
 use App\Action\Urls\Controller;
 use App\Action\Urls\view;
@@ -24,6 +25,7 @@ class AuthController extends Controller {
     public function signup($request){
 
         if($request->method == "POST"){
+
             $username = $request->username;
             $email = $request->email;
 
@@ -33,7 +35,7 @@ class AuthController extends Controller {
             $checkUsername = $userModel->select()->where(["username"=>$username]);
 
             if($checkEmail || $checkUsername){
-                return view("auth/signup",["error"=>true,"emailExist"=>$checkEmail,"usernameExists"=>$checkUsername]);
+                return view("auth/signup",["error"=>true,"emailExist"=>$checkEmail,"usernameExist"=>$checkUsername]);
             }
 
             # create new user 
@@ -49,20 +51,51 @@ class AuthController extends Controller {
                 $from = $mailer->sender("Mailbear", "<no-reply@mailbear.com>");
                 $receiver = $mailer->receiver($email);
                 $subject = $mailer->subject("Mailbear Account Verification");
-                $message = $mailer->html("");
 
-                
+                $file = "maillayouts/bears/index.html";
+                $data = [
+                    "username" => $username,
+                    "user_id" => $newUserId,
+                    "token" => $password
+                ];
+                $message = $mailer->useFile($file, $data);
 
-                #redirect to verification
-                return Redirect("/account/success/w/verify");
+                if($mailer->send()){
+                    #redirect to verification
+                    return Redirect("/account/success/w/verify");
+                } 
             }
         }
 
         return view("auth/signup");
     }
     
-    public function signin(){
+    public function signin($request){
+
+        if($request->method == "POST"){
+            $email = $request->email;
+            $password = $request->password;
+
+            $userModel = new User;
+
+            #check User
+            $check = $userModel->select()->where(["email"=>$email]);
+            if($check){
+                $checkPassword = $userModel->confirm_password($password, $check["password"]);
+                if($checkPassword){
+                    Auth::login($check);
+                    return Redirect("user/dashboard");
+                }
+                return view("auth/signin",["error"=>["message"=>"incorrect email address or password."]]);
+            }
+            return view("auth/signin",["error"=>["message"=>"account with this email address is not found."]]);
+        }
+
         return view("auth/signin");
+    }
+
+    public function verify(){
+        return view("auth/verification");
     }
 
 }
