@@ -18,8 +18,8 @@
 	</script>
 	<!-- //Meta tag Keywords -->
 
-	<link rel="stylesheet" href="bundles/css/bootstrap.css">
-	<link rel="stylesheet" href="bundles/css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="/bundles/css/bootstrap.css">
+	<link rel="stylesheet" href="/bundles/css/style.css" type="text/css" media="all" />
 	<link href="bundles/css/font-awesome.min.css" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext"
 	 rel="stylesheet">
@@ -55,16 +55,22 @@
 					<!-- //nav -->
 					<div class="d-flex mt-lg-1 mt-sm-2 mt-3 justify-content-center">
 						<!-- search -->
-						<div class="search-w3layouts mr-3">
+						<!-- <div class="search-w3layouts mr-3">
 							<form action="#" method="post" class="search-bottom-wthree d-flex">
 								<input class="search" type="search" placeholder="Search Here..." required="">
 								<button class="form-control btn" type="submit"><span class="fa fa-search"></span></button>
 							</form>
-						</div>
+						</div> -->
 						<!-- //search -->
 						<!-- download -->
-						<a class="dwn-w3ls btn" href="#" target="_blank">
-							<span class="fa fa-cloud-download"></span>
+						<a class="btn bg-p button-style" href="/account/signin">
+							<!-- <span class="fa fa-sign-in"></span> -->
+							Sign in
+						</a>
+						&nbsp;
+						<a class="btn button-style" href="/account/signup">
+							<!-- <span class="fa fa-sign-up"></span> -->
+							Sign up
 						</a>
 						<!-- //download -->
 					</div>
@@ -73,37 +79,11 @@
 		</header>
 		<!-- //header -->
 
-		<!-- banner -->
-		<div class="banner_w3lspvt position-relative">
-			<div class="container">
-				<div class="d-md-flex">
-					<div class="w3ls_banner_txt">
-						<h3 class="w3ls_pvt-title">Mail <span>Bear</span></h3>
-						<p class="text-sty-banner">Tranquil bulk email, landing pages, and marketing automation.
-							working together to get you fulfilling results specially for your business growth, </p>
-						<a href="about" class="btn button-style mt-md-5 mt-4">Sign Up Free</a>
-					</div>
-					<div class="banner-img">
-						<img src="bundles/images/banner.png" alt="" class="img-fluid">
-					</div>
-				</div>
-			</div>
-			<!-- animations effects -->
-			<div class="icon-effects-w3l">
-				<img src="bundles/images/shape1.png" alt="" class="img-fluid shape-wthree shape-w3-one">
-				<img src="bundles/images/shape2.png" alt="" class="img-fluid shape-wthree shape-w3-two">
-				<img src="bundles/images/shape3.png" alt="" class="img-fluid shape-wthree shape-w3-three">
-				<img src="bundles/images/shape5.png" alt="" class="img-fluid shape-wthree shape-w3-four">
-				<img src="bundles/images/shape4.png" alt="" class="img-fluid shape-wthree shape-w3-five">
-				<img src="bundles/images/shape6.png" alt="" class="img-fluid shape-wthree shape-w3-six">
-			</div>
-			<!-- //animations effects -->
-		</div>
-		<!-- //banner -->
+		
 	</div>
 	<!-- //main banner -->
 
-    @{content}
+    @{{content}}
 
 	<!-- footer -->
 	<footer class="bg-li py-5">

@@ -29,3 +29,11 @@ Route::get("/about", "BaseController::about");
 Route::get("/pricing", "BaseController::pricing");
 Route::get("/faq", "BaseController::faq");
 Route::get("/contact", "BaseController::contact");
+
+
+# Auth Routes 
+Route::get("/account/signin","AuthController::signin");
+Route::get("/account/signup","AuthController::signup");
+
+# App Routes [User Dashboard]
+Route::get("/user/blank","UserController::blank");

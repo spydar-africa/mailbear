@@ -1,0 +1,72 @@
+.action-list {
+    position: relative;
+}
+
+.action-list-menu {
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    width: auto;
+    border: 1px solid #5e646975;
+    padding: 2px 14px;
+    border-radius: 0px 2px 2px 2px;
+
+}
+
+.action-list-menu ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.action-list-menu li {
+    padding: 2px 16px 2px  0px ;
+    font-size: 15px;
+}
+
+.action-list a.major {
+    padding: 2px 15px;
+    font-size: 15px;
+    position: relative;
+    color: #495057a9;
+    border: 1px solid #fff;
+    z-index: 1;
+}
+
+.action-list li a, .action-list li a:hover {
+    font-size: 14px;
+    color: #495057a9;
+    text-decoration: none;
+}
+
+.action-list:hover a.major{
+    background-color: #fff;
+    border: 1px solid #5e646975;
+    border-radius: 2px 2px 0px 0px;
+    border-bottom: none;
+} 
+
+.action-list:hover .action-list-menu {
+    display: block;
+}
+
+.card {
+    border-radius: 2px !important;
+}
+
+.acs-wrapper {
+    display: inline-block;
+}
+
+.action-select {
+    padding: 5px 6px;
+    border-radius: 2px;
+}
+
+.form-control {
+    border-radius: 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline-style: none;
+}

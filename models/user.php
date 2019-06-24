@@ -36,7 +36,7 @@ class User extends Schema{
         'password' => 'string',
     );
 
-    public function generate_id(){
+    public function gen_id(){
 
         $start = uniqid();
         $rand = rand(23456, 98125);

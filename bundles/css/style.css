@@ -1627,3 +1627,10 @@ button.btn-cont-w3 {
 }
 
 /* //responsive */
+
+
+
+.bg-p, .bg-p:hover {
+    background-color: #705ecf;
+    color: #fff;
+}
