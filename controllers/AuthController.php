@@ -46,8 +46,8 @@ class AuthController extends Controller {
 
                 $mailer = new Mailer();
 
-                $from = $mailer->sender();
-                $receiver = $mailer->receiver();
+                $from = $mailer->sender("Mailbear", "<no-reply@mailbear.com>");
+                $receiver = $mailer->receiver($email);
                 $subject = $mailer->subject("Mailbear Account Verification");
                 $message = $mailer->html("");
 

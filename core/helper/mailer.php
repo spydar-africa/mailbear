@@ -35,7 +35,7 @@ class Mailer {
     }
 
     public function sender($name, $email){
-        $this->headers .= "From: " . $name . "\r\n";
+        $this->headers .= "From: " . $name ." ". $email. "\r\n";
     }
 
     public function set_headers($replyto="<no-reply>", $mime_version="1.0"){
