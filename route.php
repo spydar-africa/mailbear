@@ -57,3 +57,11 @@ Route::get("/subscribers",function(){
 Route::get("/connectyoursm",function(){
     return view("AccountSetup/connectyoursm");
 });
+
+Route::get("/marketingpath",function(){
+    return view("AccountSetup/marketingpath");
+});
+
+Route::get("/finalizingsetup",function(){
+    return view("AccountSetup/finalsetup");
+});
