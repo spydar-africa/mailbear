@@ -4,12 +4,17 @@
   function yesnomaybeCheck(x) {
     if (x === 0) {
       document.getElementById("yescheck").style.display = "block";
+      document.getElementById("maybecheck").style.display = "none";
+      document.getElementById("nocheck").style.display = "none";
     } else if (x === 1) {
+      document.getElementById("maybecheck").style.display = "none";
+      document.getElementById("yescheck").style.display = "none";
       document.getElementById("nocheck").style.display = "block";
     } else if (x === 2) {
+      document.getElementById("yescheck").style.display = "none";
+      document.getElementById("nocheck").style.display = "none";
       document.getElementById("maybecheck").style.display = "block";
-    } else
-      return (document.getElementsByClassName("none").style.display = "none");
+    }
   }
 </script>
 
@@ -28,7 +33,11 @@
             <label><input type="radio" name="yesno" />Yes</label>
           </div>
 
-          <select id="yescheck" class="form-control none" style="display: none">
+          <select
+            id="yescheck"
+            class="form-control none "
+            style="display: none"
+          >
             <option value=" 500 or less">500 or less</option>
             <option value="501 - 2000">501 - 2000</option>
             <option value="2001 - 4000">2001 - 4000</option>
