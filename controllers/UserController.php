@@ -35,9 +35,25 @@ class UserController extends Controller {
     }
 
     public function blankMail(){
+        $user_id = Auth::id("user_id");
 
         $userModel = new User;
-        return view("app/blank");
+        $cGroupModel = new ContactGroup;
+        $subsModel = new Subscribers;
+
+        $subscribers = $subsModel->selectAll()->where(["user_id"=>$user_id]);
+        $getCG = $cGroupModel->selectAll()->where(["user_id"=>$user_id]);
+
+        for ($i=0; $i < count($getCG); $i++) { 
+            # code...
+            $cleaned = trim($getCG[$i]["contacts"],",");
+            $splited = explode(",",$cleaned);
+            $num = count($splited);
+            $getCG[$i]["number"] = $num;
+        }
+
+        $data = ["subsGroup"=>$subscribers,"groups"=>$getCG];
+        return view("app/blank",$data);
     }
 
     public function contacts(){
