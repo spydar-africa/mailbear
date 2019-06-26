@@ -1,0 +1,82 @@
+@{extends "shared/app/layout"}
+<div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon">
+                        <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                        </i>
+                    </div>
+                    <div>Add New Contact
+                        <div class="page-title-subheading">Adding new contact to you contact book.
+                        </div>
+                    </div>
+                </div>
+                <div class="page-title-actions">
+                    <a href="/user/contacts" class="btn-shadow mr-3 btn btn-dark">
+                        <i class="pe-7s-back"></i>
+                        Back
+                    <a>
+                    <div class="d-inline-block dropdown">
+                        <a href="/user/compose" class="btn btn-info">
+                            <span class="btn-icon-wrapper pr-2 opacity-7">
+                                <i class="fa fa-envelope fa-w-20"></i>
+                            </span>
+                            Compose
+                        </a>
+                    </div>
+                </div>    
+            </div>
+        </div> 
+
+
+        <div class="col-lg-12">
+        <div class="col-lg-10">
+            <form action="" method="post">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        
+                        <h3 class="card-title">Create New Contact Group</h3>
+                        <p>Complete the form below to create a new contact group.</p>
+                        <div class="divider"></div>
+                        
+                        <div class="form-group">
+                            @if(~error~)
+                                <span class="alert alert-danger">@{{~error~["message"]}}</span>
+                            @elseif(~message~)
+                                <span class="alert alert-success">@{{~message~}}</span>
+                            @endif
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label for=""></label>
+                            <input type="text" name="groupName" class="form-control" placeholder="Enter Group Name">
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group pt-3 pb-3 mb-3" style="border: 1px solid #d7d7d7; cursor: pointer;">
+                                    <div class="text-center">
+                                        <i class="fa fa-upload" style="font-size: 60px;"></i>
+                                        <p>Import contact</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label sr-only">Contacts</label>
+                                    <textarea class="form-control" name="groupContacts" rows="5" placeholder="Enter Contacts"></textarea>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <button class="btn btn-primary">Create Group</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

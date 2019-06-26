@@ -7,7 +7,7 @@
                         <i class="pe-7s-car icon-gradient bg-mean-fruit">
                         </i>
                     </div>
-                    <div>Blank Page
+                    <div>Compose New Mail
                         <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
                         </div>
                     </div>
@@ -66,4 +66,159 @@
             </div>
         </div> 
 
+        <div class="col-lg-12">
+        <div class="col-lg-10">
+
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    
+                    <h3 class="card-title">New Mail</h3>
+                    <p>Complete the form below to compose a new mail.</p>
+                    <div class="divider"></div>
+                    
+                    <div id="accordion mailp" class="accordion-wrapper mb-3">
+                        <div class="card pt-4">
+                            <div id="headingOne" class="col-lg-12 bg-white pb-4">
+                                <div class="text-left m-0 p-0 collapsed">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <span><strong>Recipients: </strong></span>
+                                            <p></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="text-right">
+                                                <button data-toggle="collapse" data-target="#collapseOne1" aria-expanded="false" aria-controls="collapseOne" class="btn bg-light">Edit Recipients</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-parent="#accordion" id="collapseOne1" aria-labelledby="headingOne" class="collapse" style="">
+                                
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name">Name:</label>
+                                                <input type="text" id="name" name="name" class="form-control" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="email">Email Addres:</label>
+                                                <input type="text" id="email" name="email" class="form-control" placeholder="Email Addres">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card pt-4">
+                            <div id="headingOne" class="col-lg-12 bg-white pb-4">
+                                <div class="text-left m-0 p-0 collapsed">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <span><strong>From: </strong></span>
+                                            <p><b><span class="name">@{{~user~["firstname"]}}</span> 
+                                                <span class="email">@{{~user~["email"]}}</span>
+                                            </b></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="text-right">
+                                                <button data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseOne" class="btn bg-light">Edit from</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-parent="#accordion" id="collapseTwo2" aria-labelledby="headingOne" class="collapse" style="">
+                               
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name">Name:</label>
+                                                <input type="text" id="name" name="name" class="form-control" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="email">Email Addres:</label>
+                                                <input type="text" id="email" name="email" class="form-control" placeholder="Email Addres">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card pt-4">
+                            <div id="headingOne" class="col-lg-12 bg-white pb-4">
+                                <div class="text-left m-0 p-0 collapsed">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <span><strong>Subject: </strong></span>
+                                            <p><b><span class="name">@{{~user~["firstname"]}}</span> 
+                                                <span class="email">@{{~user~["email"]}}</span>
+                                            </b></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="text-right">
+                                                <button data-toggle="collapse" data-target="#collapseThree3" aria-expanded="false" aria-controls="collapseOne" class="btn bg-light">Edit Subject</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-parent="#accordion" id="collapseThree3" aria-labelledby="headingOne" class="collapse" style="">
+                                
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for=""></label>
+                                        <input type="text" name="mailSubject" class="form-control" placeholder="Enter Subject">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card pt-4">
+                            <div id="headingOne" class="col-lg-12 bg-white pb-4">
+                                <div class="text-left m-0 p-0 collapsed">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <span><strong>Body Content: </strong></span>
+                                            <p></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="text-right">
+                                                <button data-toggle="collapse" data-target="#collapseFour4" aria-expanded="false" aria-controls="collapseOne" class="btn bg-light">Edit Content</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-parent="#accordion" id="collapseFour4" aria-labelledby="headingOne" class="collapse" style="">
+                                
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for=""></label>
+                                        <input type="text" name="mailSubject" class="form-control" placeholder="Enter Subject">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="form-group">
+                        <label class="control-label sr-only" for="summernote">Body </label>
+                        <textarea class="form-control" id="summernote" name="productDescription" rows="10" placeholder="Write Descriptions"></textarea>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

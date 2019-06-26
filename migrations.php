@@ -8,3 +8,5 @@
 */
 
 Migration::Register("User");
+Migration::Register("ContactGroup");
+Migration::Register("Subscribers");

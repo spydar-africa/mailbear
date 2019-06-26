@@ -17,6 +17,12 @@ class TemplateEngine {
         return $fcontent;
     }
 
+    public function partialRender($fcontent, $content=null) {
+        $fcontent = preg_replace("/@\{extends (.*)\}/","",$fcontent);
+        $fcontent = TemplateEngine::editFile($fcontent, $content);
+        return eval("?>".$fcontent);
+    }
+
 
     public function basic($fcontent) {
         
@@ -35,6 +41,7 @@ class TemplateEngine {
     public function ConditionalStatement($fcontent){
         
         $fcontent = preg_replace("/\@if\((.*)\)/", '<?php if($1){ ?>',$fcontent);
+        $fcontent = preg_replace("/\@elseif\((.*)\)/", '<?php }elseif($1){ ?>',$fcontent);
         $fcontent = preg_replace("/\@else/", '<?php } else { ?>',$fcontent);
         $fcontent = preg_replace("/\@endif/", '<?php } ?>',$fcontent);
 
