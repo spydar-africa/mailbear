@@ -1,52 +1,90 @@
 @{extends "shared/layout"}
-      <div class="container h-100 mt-5">
-        <div class="row h-100 justify-content-center align-items-center">
-          <form class="col-6">
-            <h1>Do you have a list of email subscribers?</h1>
-            <p>
-              These are people who have signed up to receive marketing emails
-              from your organization.
-            </p>
-            <div class="form-group"></div>
-            <div class="form-group">
-              <div>
-                <div class="radio">
-                  <label><input type="radio" name="Yes" checked />Yes</label>
-                </div>
 
-                <select name="selectsize" class="form-control" id="selectsize">
-                  <option value=" 500 or less">500 or less</option>
-                  <option value="501 - 2000">501 - 2000</option>
-                  <option value="2001 - 4000">2001 - 4000</option>
-                  <option value="4001 - 5000">4001 - 5000</option>
-                </select>
-              </div>
-              <div>
-                <div class="radio">
-                  <label><input type="radio" name="Yes" checked />No</label>
-                </div>
+<script type="text/javascript">
+  function yesnomaybeCheck(x) {
+    if (x === 0) {
+      document.getElementById("yescheck").style.display = "block";
+    } else if (x === 1) {
+      document.getElementById("nocheck").style.display = "block";
+    } else if (x === 2) {
+      document.getElementById("maybecheck").style.display = "block";
+    } else
+      return (document.getElementsByClassName("none").style.display = "none");
+  }
+</script>
 
-                <p>
-                  its OK!, We can help you build your subscriber list with ads
-                  and landing pages.
-                </p>
-              </div>
+<div class="container h-100 mt-5">
+  <div class="row h-100 justify-content-center align-items-center">
+    <form class="col-6">
+      <h1>Do you have a list of email subscribers?</h1>
+      <p>
+        These are people who have signed up to receive marketing emails from
+        your organization.
+      </p>
+      <div class="form-group"></div>
+      <div class="form-group">
+        <div>
+          <div class="radio" onclick="javascript:yesnomaybeCheck(0);">
+            <label><input type="radio" name="yesno" />Yes</label>
+          </div>
 
-              <div>
-                <div class="radio">
-                  <label><input type="radio" name="Yes" />Im not sure</label>
-                </div>
-                <select name="selectsize" class="form-control" id="selectsize">
-                  <option value=" I don't know if what i have is considered a list">I don't know if what i have is considered a list</option>
-                  <option value="I don't know if i have the permission to use the email i have">I don't know if i have the permission to use the email i have</option>
-                  <option value="I only send transactional emails">I only send transactional emails</option>
-                  <option value="Something else">Something else</option>
-                </select>
-              </div>
-            </div>
+          <select id="yescheck" class="form-control none" style="display: none">
+            <option value=" 500 or less">500 or less</option>
+            <option value="501 - 2000">501 - 2000</option>
+            <option value="2001 - 4000">2001 - 4000</option>
+            <option value="4001 - 5000">4001 - 5000</option>
+          </select>
+        </div>
 
-            <button type="submit" class="btn btn-primary">Continue</button>
-          </form>
+        <div>
+          <div class="radio">
+            <label
+              ><input
+                type="radio"
+                name="yesno"
+                onclick="javascript:yesnomaybeCheck(1);"
+              />No</label
+            >
+          </div>
+
+          <p id="nocheck" class="none" style="display: none">
+            its OK!, We can help you build your subscriber list with ads and
+            landing pages.
+          </p>
+        </div>
+
+        <div>
+          <div class="radio">
+            <label
+              ><input
+                type="radio"
+                name="yesno"
+                onclick="javascript:yesnomaybeCheck(2);"
+              />Im not sure</label
+            >
+          </div>
+          <select
+            id="maybecheck"
+            class="form-control none"
+            style="display: none"
+          >
+            <option value=" I don't know if what i have is considered a list"
+              >I don't know if what i have is considered a list</option
+            >
+            <option
+              value="I don't know if i have the permission to use the email i have"
+              >I don't know if i have the permission to use the email i
+              have</option
+            >
+            <option value="I only send transactional emails"
+              >I only send transactional emails</option
+            >
+            <option value="Something else">Something else</option>
+          </select>
         </div>
       </div>
-   
+
+      <button type="submit" class="btn btn-primary">Continue</button>
+    </form>
+  </div>
+</div>

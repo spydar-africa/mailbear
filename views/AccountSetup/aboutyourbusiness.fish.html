@@ -1,4 +1,5 @@
 @{extends "shared/layout"}
+
 <script type="text/javascript">
       
   function yesnoCheck(){
@@ -29,7 +30,7 @@
 
                     <p>Does your company has a website?</p>
                   <div class="radio" onclick="javascript:yesnoCheck();">
-                        <label><input id = "yescheck" type="radio" name="yesno" checked>Yes</label>
+                        <label><input  id = "yescheck" type="radio" name="yesno" >Yes</label>
                       </div>
                      
                  
@@ -37,7 +38,7 @@
                     type="text"
                     class="form-control"
                     id="ifYes"
-                    display="none"
+                   style = "display: none"
                     placeholder="Your Company's Website"
                   />
 
