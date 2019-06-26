@@ -1393,6 +1393,11 @@ button.btn-cont-w3 {
         
     }
 
+   .fa {
+       margin-right: 100px;
+   }
+   
+
     .services-icon,
     .services-grid {
         padding: 0 1em;
