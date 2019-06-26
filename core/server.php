@@ -24,6 +24,7 @@ class Server {
         # include $Cores["middlewares"]["cookies"];
         include $Cores["dependecies"]["controller"];
         include $Cores["helpers"]["fs"];
+        include $Cores["helpers"]["mailer"];
 
     }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login - Mailbear</title>
+	<title>Sign Up - Mailbear</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -37,11 +37,17 @@
 					Sign Up
 				</span>
 
+				@if(~emailExist~)
+					<small class="text-danger">email already exists</small>
+				@endif
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter a valid email address">
 					<input class="input100" type="text" name="email" placeholder="email address">
 					<span class="focus-input100"></span>
                 </div>
-                
+				
+				@if(~usernameExist~)
+					<small class="text-danger">username already taken!</small>
+				@endif
                 <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
 					<input class="input100" type="text" name="username" placeholder="username">
 					<span class="focus-input100"></span>

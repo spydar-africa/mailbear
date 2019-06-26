@@ -24,6 +24,27 @@ function view($filename, $content=null) {
 
 }
 
+function PartialView($filename, $content=null){
+    include "./Config.php";
+
+    $path = "./".$viewPath."/";
+    $ext = $viewEngine.".".$extension;
+    $filename = $path.$filename.".".$ext;
+
+
+    if(file_exists($filename)) {
+        $fcontent = file_get_contents($filename);
+
+        $template = new TemplateEngine($ext);
+        $fcontent = $template->partialRender($fcontent, $content);        
+
+        return $fcontent;
+    } 
+    else {
+        throw new Error($filename." does not exists");
+    }
+}
+
 function Content($text){
     return $text;
 }

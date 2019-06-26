@@ -41,11 +41,15 @@ class User extends Schema{
         $start = uniqid();
         $rand = rand(23456, 98125);
         $end = uniqid();
-        return $start."_".$rand."_".$end;
+        return $start.$rand.$end;
 
     }
 
     public function set_password($password){
         return password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    public function confirm_password($password, $hash){
+        return password_verify($password, $hash);
     }
 }

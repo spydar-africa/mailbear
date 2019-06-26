@@ -1,0 +1,102 @@
+@{extends "shared/app/layout"}
+<div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon">
+                        <i class="pe-7s-users icon-gradient bg-mean-fruit">
+                        </i>
+                    </div>
+                    <div>Contacts
+                        <div class="page-title-subheading">All your contact groups.
+                        </div>
+                    </div>
+                </div>
+                <div class="page-title-actions">
+                    <a href="/user/contacts/add" data-toggle="tooltip" title="Add new contacts" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
+                        <i class="fa fa-plus-circle"></i>
+                        Add new contacts
+                    </a>
+                    <div class="d-inline-block dropdown">
+                        <a href="/user/compose" class="btn btn-info">
+                            <span class="btn-icon-wrapper pr-2 opacity-7">
+                                <i class="fa fa-envelope fa-w-20"></i>
+                            </span>
+                            Compose
+                        </a>
+                    </div>
+                </div>    
+            </div>
+        </div> 
+
+        <div class="col-lg-12">
+        <div class="col-lg-10">
+            <div class="row">
+                <div class="col-lg-11">
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <button class="btn btn-outline-primary">Add Contact</button>
+                            <button class="btn btn-outline-primary">Export All</button>
+                            <button class="btn btn-outline-primary"> <i class="fa fa-trash"></i> Delete Group</button>
+                        </div>
+                    </div>
+                    <div class="main-card card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <button class="btn btn-outline-danger" data-toggle="tooltip" title="Delete" data-placement="top"> 
+                                            <i class="fa fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-bordered table-responsive-sm">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">
+                                            <div class="custom-checkbox custom-control">
+                                                <input type="checkbox" id="exampleCustomCheckbox01" class="custom-control-input">
+                                                <label class="custom-control-label" for="exampleCustomCheckbox01"></label>
+                                            </div>
+                                        </th>
+                                        <th scope="col">No.</th>
+                                        <th scope="col">Email Address</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-hover">
+                                    {{$cleaned = trim(~target~["contacts"],",")}}
+                                    {{$list = explode(",",$cleaned)}}
+                                    @for($i = 0; $i < count($list); $i++)
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="custom-checkbox custom-control">
+                                                <input type="checkbox" id="exampleCustomCheckbox@{{$i}}" class="custom-control-input">
+                                                <label class="custom-control-label" for="exampleCustomCheckbox@{{$i}}"></label>
+                                            </div>
+                                        </th>
+                                        <td>@{{$i + 1}}</td>
+                                        <td>@{{$list[$i]}}</td>
+                                        <td class="justify-content-center">
+                                            <div class="action-list">
+                                                <a href="#" class="major"><i class="fa fa-ellipsis-h"></i></a>
+                                                <div class="action-list-menu">
+                                                    <ul>
+                                                        <li><a href="?m=view&in=@{{$i}}">View</a> </li>
+                                                        <li><a href="?m=edit&in=@{{$i}}">Edit</a></li>
+                                                        <li><a href="?m=delete&in=@{{$i}}">Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endfor
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

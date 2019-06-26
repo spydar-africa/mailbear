@@ -35,9 +35,15 @@ Route::get("/contact", "BaseController::contact");
 Route::get("/account/signin","AuthController::signin");
 Route::get("/account/signup","AuthController::signup");
 
+Route::post("/account/signin","AuthController::signin");
+Route::post("/account/signup","AuthController::signup");
+
+Route::get("/account/success/w/verify","AuthController::verify");
+
 # App Routes [User Dashboard]
 Route::get("/user/blank","UserController::blank");
 
+<<<<<<< HEAD
 Route::get("/op",function(){
     return view("AccountSetup/index");
 });
@@ -65,3 +71,15 @@ Route::get("/marketingpath",function(){
 Route::get("/finalizingsetup",function(){
     return view("AccountSetup/finalsetup");
 });
+=======
+Route::get("/user/dashboard","UserController::dashboard");
+Route::get("/user/compose","UserController::compose");
+Route::get("/user/compose/new/blank","UserController::blankMail");
+
+Route::get("/user/contacts","UserController::contacts");
+Route::get("/user/contacts/add","UserController::addContacts");
+
+Route::post("/user/contacts/add","UserController::addContacts");
+
+Route::get("/user/contacts/views/{sn:int}","UserController::viewContacts");
+>>>>>>> backend
