@@ -1386,10 +1386,17 @@ button.btn-cont-w3 {
         font-size: 15px;
     }
 
+  
     .button-style {
         padding: 13px 24px;
         font-size: 13px;
+        
     }
+
+   .fa {
+       margin-right: 100px;
+   }
+   
 
     .services-icon,
     .services-grid {
@@ -1628,9 +1635,9 @@ button.btn-cont-w3 {
 
 /* //responsive */
 
-
-
 .bg-p, .bg-p:hover {
     background-color: #705ecf;
     color: #fff;
 }
+
+
