@@ -47,6 +47,8 @@ Route::get("/user/dashboard","UserController::dashboard");
 Route::get("/user/compose","UserController::compose");
 Route::get("/user/compose/new/blank","UserController::blankMail");
 
+Route::post("/user/mailer/sendmail","UserController::sendmail");
+
 Route::get("/user/contacts","UserController::contacts");
 Route::get("/user/contacts/add","UserController::addContacts");
 
