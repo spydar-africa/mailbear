@@ -1,56 +1,53 @@
 @{extends "shared/layout"}
 
 <script type="text/javascript">
-      
-  function yesnoCheck(){
-    if (document.getElementById('yescheck').checked){
-      document.getElementById('ifYes').style.display = 'block';
-    }
-    else document.getElementById('ifYes').style.display = 'none';
+  function yesnoCheck() {
+    if (document.getElementById("yescheck").checked) {
+      document.getElementById("ifYes").style.display = "block";
+    } else document.getElementById("ifYes").style.display = "none";
   }
-  </script>
+</script>
 
-      <div class="container h-100 mt-5">
-        <div class="row h-100 justify-content-center align-items-center">
-          <form class="col-5">
-              <h1 class = "mb-3">More about your business</h1>
-              <h5 class = "mb-2">Let us know a little bit more about your company</h5>
-              <div class="form-group">
-                  
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputcompanyname"
-                    aria-describedby="inputName"
-                    placeholder="Name of Company"
-                  />
-                 
-                </div>
-                <div class="form-group">
+<div class="container  mt-5">
+    <div class="row justify-content-center align-items-center ">
+      <div class="row">
+        <div class="col-12">
+          <form class="col-sm-12">
+          <h1 class="text-center mb-3">More about your business</h1>
+          <h5 class="text-center mb-2">Let us know a little bit more about your company</h5>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="inputcompanyname"
+              aria-describedby="inputName"
+              placeholder="Name of Company"
+            />
+          </div>
+          <div class="form-group">
+            <p>Does your company has a website?</p>
+            <div class="radio" onclick="javascript:yesnoCheck();">
+              <label
+                ><input id="yescheck" type="radio" name="yesno" />Yes</label
+              >
+            </div>
 
-                    <p>Does your company has a website?</p>
-                  <div class="radio" onclick="javascript:yesnoCheck();">
-                        <label><input  id = "yescheck" type="radio" name="yesno" >Yes</label>
-                      </div>
-                     
-                 
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="ifYes"
-                   style = "display: none"
-                    placeholder="Your Company's Website"
-                  />
+            <input
+              type="text"
+              class="form-control"
+              id="ifYes"
+              style="display: none"
+              placeholder="Your Company's Website"
+            />
 
-                  <div class="radio" onclick="javascript:yesnoCheck();" >
-                        <label><input id = "nocheck" type="radio" name="yesno">No</label>
-                      </div>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Continue</button>
-              </form>
-          </form>
-        </div>
+            <div class="radio" onclick="javascript:yesnoCheck();">
+              <label><input id="nocheck" type="radio" name="yesno" />No</label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Continue</button>
+        </form>
       </div>
-     
-     
+    </div>
+  </div>
+</div>

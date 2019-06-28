@@ -71,7 +71,7 @@ Route::get("/finalizingsetup",function(){
     return view("AccountSetup/finalsetup");
 });
 Route::get("/setpricing",function(){
-    return view("AccountSetup/setprizing");
+    return view("AccountSetup/setpricing");
 });
 Route::get("/user/dashboard","UserController::dashboard");
 Route::get("/user/compose","UserController::compose");
