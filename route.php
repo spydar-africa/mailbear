@@ -73,6 +73,11 @@ Route::get("/finalizingsetup",function(){
 Route::get("/setpricing",function(){
     return view("AccountSetup/setpricing");
 });
+
+Route::get("/thankyou",function(){
+    return view("base/thankyou");
+});
+
 Route::get("/user/dashboard","UserController::dashboard");
 Route::get("/user/compose","UserController::compose");
 Route::get("/user/compose/new/blank","UserController::blankMail");
