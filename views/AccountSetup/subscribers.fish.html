@@ -18,82 +18,78 @@
   }
 </script>
 
-<div class="container h-100 mt-5">
-  <div class="row h-100 justify-content-center align-items-center">
-    <form class="col-6">
-      <h1>Do you have a list of email subscribers?</h1>
-      <p>
-        These are people who have signed up to receive marketing emails from
-        your organization.
-      </p>
-      <div class="form-group"></div>
-      <div class="form-group">
-        <div>
-          <div class="radio" onclick="javascript:yesnomaybeCheck(0);">
-            <label><input type="radio" name="yesno" />Yes</label>
+<div class="what bg-li py-5" id="what">
+  <div class="container h-100 mt-5">
+    <div class="row h-100 justify-content-center align-items-center">
+      <form class="col-6">
+        <h3>Do you have a list of email subscribers?</h3>
+        <p>
+          These are people who have signed up to receive marketing emails from
+          your organization.
+        </p>
+        <div class="form-group"></div>
+        <div class="form-group">
+          <div>
+            <div class="radio" onclick="javascript:yesnomaybeCheck(0);">
+              <label><input type="radio" name="yesno" value="yes"/>Yes</label>
+            </div>
+  
+            <select
+              id="yescheck"
+              class="form-control none "
+              style="display: none"
+            >
+              <option value=" 500 or less">500 or less</option>
+              <option value="501 - 2000">501 - 2000</option>
+              <option value="2001 - 4000">2001 - 4000</option>
+              <option value="4001 - 5000">4001 - 5000</option>
+            </select>
           </div>
-
-          <select
-            id="yescheck"
-            class="form-control none "
-            style="display: none"
-          >
-            <option value=" 500 or less">500 or less</option>
-            <option value="501 - 2000">501 - 2000</option>
-            <option value="2001 - 4000">2001 - 4000</option>
-            <option value="4001 - 5000">4001 - 5000</option>
-          </select>
-        </div>
-
-        <div>
-          <div class="radio">
-            <label
-              ><input
-                type="radio"
-                name="yesno"
-                onclick="javascript:yesnomaybeCheck(1);"
-              />No</label
-            >
+  
+          <div>
+            <div class="radio">
+              <label
+                ><input
+                  type="radio"
+                  name="yesno"
+                  value="no"
+                  onclick="javascript:yesnomaybeCheck(1);"
+                />No</label
+              >
+            </div>
+  
+            <p id="nocheck" class="none" style="display: none">
+              its OK!, We can help you build your subscriber list with ads and
+              landing pages.
+            </p>
           </div>
-
-          <p id="nocheck" class="none" style="display: none">
-            its OK!, We can help you build your subscriber list with ads and
-            landing pages.
-          </p>
-        </div>
-
-        <div>
-          <div class="radio">
-            <label
-              ><input
-                type="radio"
-                name="yesno"
-                onclick="javascript:yesnomaybeCheck(2);"
-              />Im not sure</label
-            >
+  
+          <div>
+            <div class="radio">
+              <label>
+              </label>
+                <input type="radio" name="yesno" value="notsure" onclick="javascript:yesnomaybeCheck(2);"/>
+                Im not sure
+              </label>
+            </div>
+            <select id="maybecheck" class="form-control none" style="display: none">
+              <option value=" I don't know if what i have is considered a list">
+                I don't know if what i have is considered a list
+              </option>
+              <option value="I don't know if i have the permission to use the email i have"
+                >I don't know if i have the permission to use the email i
+                have
+                </option>
+              <option value="I only send transactional emails"
+                >I only send transactional emails</option
+              >
+              <option value="Something else">Something else</option>
+            </select>
           </div>
-          <select
-            id="maybecheck"
-            class="form-control none"
-            style="display: none"
-          >
-            <option value=" I don't know if what i have is considered a list"
-              >I don't know if what i have is considered a list</option
-            >
-            <option
-              value="I don't know if i have the permission to use the email i have"
-              >I don't know if i have the permission to use the email i
-              have</option
-            >
-            <option value="I only send transactional emails"
-              >I only send transactional emails</option
-            >
-            <option value="Something else">Something else</option>
-          </select>
         </div>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Continue</button>
-    </form>
+  
+        <button type="submit" class="btn bg-p">Continue</button>
+      </form>
+    </div>
   </div>
 </div>

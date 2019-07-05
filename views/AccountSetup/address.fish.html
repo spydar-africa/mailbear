@@ -1,54 +1,80 @@
 @{extends "shared/layout"}
-<div class="container h-100 mt-5">
-  <div class="row h-100 justify-content-center align-items-center">
-    <form class="col-6">
-      <h1>Please Enter Your Address</h1>
-      <h4>
-        we need a physical address to make sure your emails comply with
-        international anti-spam laws.
-      </h4>
-      <br />
-      <div class="form-group">
-        <label for="address"
-          >Address line 1 (Street address or post office box)</label
-        >
-        <input
-          type="address"
-          class="form-control"
-          id="inputname"
-          placeholder=""
-          required
-        />
-      </div>
 
-      <div class="form-group">
-        <label for="inputname">Address line 2 (optional)</label>
-        <input
-          type="address"
-          class="form-control"
-          id="inputname"
-          placeholder=""
-          required
-        />
-      </div>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="City" name = "City" required/>
-        <span class="input-group-addon"></span>
-        <input type="text" class="form-control" placeholder="State" name = "state" required />
-      </div>
-      <br />
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Country" required/>
-        <span class="input-group-addon"></span>
-        <input
-          type="country"
-          class="form-control"
-          placeholder="Zip Code/Postal Code"
-        />
-      </div>
+<div class="what bg-li py-5" id="what">
+    <div class="container h-100 mt-3">
+        <div class="row h-100 justify-content-center align-items-center">
+            <form class="col-6" action="" method="POST">
+            <h3>Let's know a little about you</h3>
+            <p>we need a brief info about you to make sure your emails comply with
+                international anti-spam laws.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- <label for="">Firstname</label> -->
+                        <input type="text" class="form-control" name="firstname" placeholder="Enter Firstname">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- <label for="">Lastname</label> -->
+                        <input type="text" class="form-control" name="lastname" placeholder="Enter Lastname">
+                    </div>
+                </div>
+            </div>
 
-      <br />
-      <button type="submit" class="btn btn-primary">Continue</button>
-    </form>
-  </div>
+            <div class="form-group">
+                <!-- <label for="address">Address line 1 (Street address or post office box)</label> -->
+                <input type="address" class="form-control" name="adline1" placeholder="Address line 1 (Street address or post office box)" required/>
+            </div>
+
+            <div class="form-group">
+                <!-- <label for="inputname">Address line 2 (optional)</label> -->
+                <input type="address" class="form-control" name="adline2" placeholder="Address line 2 (optional)"/>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- <label for="">City</label> -->
+                        <input type="text" class="form-control" name="city" placeholder="City" name = "City" required/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- <label for="">State</label> -->
+                        <input type="text" class="form-control" name="state" placeholder="State" name = "state" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- <label for="">Country</label> -->
+                        <input type="text" class="form-control" name="country" placeholder="Country" required/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- <label for="">Zip Code/Postal Code</label> -->
+                        <input type="text" class="form-control" name="zipCode" placeholder="Zip Code/Postal Code"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn bg-p">Continue</button>
+            </div>
+            </form>
+        </div>
+    </div>
 </div>
+
+
+
+
+
+
+

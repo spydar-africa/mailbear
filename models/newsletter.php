@@ -15,17 +15,14 @@
 
 use App\Core\Database\Schema;
 
-class UserSetting extends Schema{
+class Newsletter extends Schema{
 
-    public $table = 'user_setting';
+    public $table = 'newsletters';
 
     public $model = array(
+        "sn" => "sn",
         "user_id" => "string",
-        "subPlan" => "string",
-        "start_date" => "string",
-        "end_data" => "string",
-        "duration" => "string",
-        "mode" => "string"
+        "emails" => "email",
     );
 
 }

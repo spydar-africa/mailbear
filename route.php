@@ -39,11 +39,34 @@ Route::post("/account/signin","AuthController::signin");
 Route::post("/account/signup","AuthController::signup");
 
 Route::get("/account/success/w/verify","AuthController::verify");
+Route::get("/account/n/v/","AuthController::verified");
+
+Route::get("/account/n/plan/{userId:string}","AuthController::plan");
+
+Route::get("/account/n/profile/{userId:string}","AuthController::userProfile");
+Route::post("/account/n/profile/{userId:string}","AuthController::userProfile");
+
+Route::get("/account/n/company/{userId:string}","AuthController::company");
+Route::post("/account/n/company/{userId:string}","AuthController::company");
+
+# /account/n/subscribers/
+Route::get("/account/n/subscribers/{userId:string}","AuthController::subscribers");
+Route::post("/account/n/subscribers/{userId:string}","AuthController::subscribers");
 
 # App Routes [User Dashboard]
 Route::get("/user/blank","UserController::blank");
+Route::get("/user/dashboard","UserController::dashboard");
+Route::get("/user/compose","UserController::compose");
+Route::get("/user/compose/new/blank","UserController::blankMail");
 
-<<<<<<< HEAD
+Route::post("/user/mailer/sendmail","UserController::sendmail");
+
+Route::get("/user/contacts","UserController::contacts");
+Route::get("/user/contacts/add","UserController::addContacts");
+Route::post("/user/contacts/add","UserController::addContacts");
+Route::get("/user/contacts/views/{sn:int}","UserController::viewContacts");
+
+
 Route::get("/op",function(){
     return view("AccountSetup/index");
 });
@@ -71,17 +94,3 @@ Route::get("/marketingpath",function(){
 Route::get("/finalizingsetup",function(){
     return view("AccountSetup/finalsetup");
 });
-=======
-Route::get("/user/dashboard","UserController::dashboard");
-Route::get("/user/compose","UserController::compose");
-Route::get("/user/compose/new/blank","UserController::blankMail");
-
-Route::post("/user/mailer/sendmail","UserController::sendmail");
-
-Route::get("/user/contacts","UserController::contacts");
-Route::get("/user/contacts/add","UserController::addContacts");
-
-Route::post("/user/contacts/add","UserController::addContacts");
-
-Route::get("/user/contacts/views/{sn:int}","UserController::viewContacts");
->>>>>>> backend

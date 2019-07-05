@@ -7,10 +7,10 @@
  * @example 'Migration::Register("ModelName")'
 */
 
-<<<<<<< HEAD
-#Migration::Register("User");
-=======
 Migration::Register("User");
 Migration::Register("ContactGroup");
 Migration::Register("Subscribers");
->>>>>>> backend
+Migration::Register("Newsletter");
+Migration::Register("Company");
+
+#Migration::Register("UserSetting");
