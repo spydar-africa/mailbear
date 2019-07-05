@@ -38,11 +38,18 @@ Route::get("/account/signup","AuthController::signup");
 Route::post("/account/signin","AuthController::signin");
 Route::post("/account/signup","AuthController::signup");
 
+Route::post("/base/thankyou","ContactUs::thankyou");
+
 Route::get("/account/success/w/verify","AuthController::verify");
 
 # App Routes [User Dashboard]
 Route::get("/user/blank","UserController::blank");
 
+# App Routes [User Dashboard]
+Route::get("/user/blank","UserController::blank");
+
+
+//ACCOUNT SETUP
 Route::get("/op",function(){
     return view("AccountSetup/index");
 });
@@ -54,6 +61,7 @@ Route::get("/aboutbusiness",function(){
 Route::get("/inputaddress",function(){
     return view("AccountSetup/address");
 });
+
 
 Route::get("/subscribers",function(){
     return view("AccountSetup/subscribers");
@@ -77,6 +85,10 @@ Route::get("/setpricing",function(){
 Route::get("/thankyou",function(){
     return view("base/thankyou");
 });
+
+
+
+
 
 Route::get("/user/dashboard","UserController::dashboard");
 Route::get("/user/compose","UserController::compose");
