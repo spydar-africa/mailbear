@@ -20,7 +20,7 @@ use App\Core\Engine\Router\Request;
 
 class BaseController extends Controller {
 
-    public function index(){
+    public function index($request){
         return view("base/index");
     }
 
@@ -28,7 +28,19 @@ class BaseController extends Controller {
         return view("base/about");
     }
 
-    public function contact(){
+    public function contact($request){
+
+        if($request->method == "POST"){
+
+            $firstname = $request->firstname;
+            $lastname = $request->lastname;
+            $email = $request->email;
+            $mobile = $request->mobile;
+            $message = $request->message;
+
+            
+
+        }
         return view("base/contact");
     }
 
