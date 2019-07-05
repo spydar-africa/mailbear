@@ -98,4 +98,119 @@ class AuthController extends Controller {
         return view("auth/verification");
     }
 
+    public function verified($request){
+
+        if(isset($request->tg)){
+            $user_id = $request->tg;
+
+            $userModel = new User;
+
+            $getU = $userModel->select(["verification"])->where(["user_id"=>$user_id]);
+
+            if($getU){
+                if($getU["verification"] === "verified"){
+                    return Redirect("/account/signin");
+                }
+            }
+
+            $update = $userModel->update(["status"=>"active","verification"=>"verified"])->where(["user_id"=>$user_id]);
+            if($update){
+                return view("auth/verification",
+                ["message"=>
+                    [
+                        "title"=>"your account has been verified",
+                        "content"=> "your account has been confirmed click the button below to complete account setup."
+                    ],
+                    "user_id"=>$user_id
+                ]);
+            }
+        }
+
+        return Error404();
+    }
+
+    # GET
+    public function plan($request){
+
+        if(isset($request->selected)){
+            $selected = $request->selected;
+
+            if($selected == "free") {
+                $days = "7 days";
+            } else if($selected == "standard"){
+                $days = "";
+            } else if($selected == "premium") {
+
+            }
+
+            $start_date = date("Y-m-d");
+            $date=date_create($start_date);
+            date_add($date,date_interval_create_from_date_string("14 days"));
+            $end_date = date_format($date,"Y-m-d");
+
+
+            $userS = new UserSetting;
+
+
+
+
+        }
+        return view("auth/sub_plans");
+    }
+
+    public function userProfile($request){
+
+        if($request->method == "POST"){
+            $data = [
+                "firstname" => $request->firstname,
+                "lastname" => $request->lastname,
+                "address" => $request->adline1,
+                "city" => $request->city,
+                "state" => $request->state,
+                "country" => $request->country,
+                "zipCode" => $request->zipCode,
+            ];
+
+            $userModel = new User;
+            $user_id = $request->param["userId"];
+            $update = $userModel->update($data)->where(["user_id"=>$user_id]);
+            if($update) {
+                return Redirect("/account/n/company/".$user_id);
+            }
+        }
+
+        return view("AccountSetup/address");
+    }
+
+    public function company($request){
+
+        if($request->method == "POST") {
+            $user_id = $request->param["userId"];
+            $company = new Company;
+
+            $companyName = $request->companyName;
+            $companyWebsite = "";
+
+            if(isset($request->yesno) && $request->yesno == "true"){
+                $companyWebsite = $request->companyWebsite;
+            }
+
+            $insert = $company->insert(["user_id"=>$user_id,"companyName"=>$companyName, "website"=>$companyWebsite]);
+            if($insert) {
+                return Redirect("/account/signup");
+                # return Redirect("/account/n/subscribers/".$user_id);
+            }
+
+        }
+
+        return view("AccountSetup/aboutyourbusiness");
+    }
+
+    public function subscribers($request){
+        return view("AccountSetup/subscribers");
+    }
+
 }
+
+
+# gigs@clearwox.com

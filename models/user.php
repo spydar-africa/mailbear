@@ -33,7 +33,14 @@ class User extends Schema{
         'lastname' => 'string',
         'email' => 'email',
         'username'=> 'uniquestring',
+        "address" => "text",
+        "city" => "string",
+        "state" => "string",
+        "country" => "string",
+        "zipCode" => "int",
         'password' => 'string',
+        "status" => "string",
+        "verification" => "string",
     );
 
     public function gen_id(){

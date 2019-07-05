@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Fs;
+use App\Helpers\Mailer;
 use App\Action\Urls\Controller;
 use App\Action\Urls\view;
 use App\Core\Engine\Router\Request;
@@ -38,8 +39,17 @@ class BaseController extends Controller {
             $mobile = $request->mobile;
             $message = $request->message;
 
-            
+            # Mailing 
+            $mailer = new Mailer();
+            $from = $mailer->sender($firstname." ".$lastname, $email);
+            $receiver = $mailer->receiver("akinniyiakinpelumi@mgmail.com");
+            $subject = $mailer->subject($firstname." ".$lastname." Sent you a message");
+            $message = $mailer->message($message);
 
+            if($mailer->send()){
+                # return thankyou message
+                return view("base/thankyou");
+            } 
         }
         return view("base/contact");
     }

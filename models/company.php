@@ -15,17 +15,15 @@
 
 use App\Core\Database\Schema;
 
-class UserSetting extends Schema{
+class Company extends Schema{
 
-    public $table = 'user_setting';
+    public $table = 'company';
 
     public $model = array(
+        "sn" => "sn",
         "user_id" => "string",
-        "subPlan" => "string",
-        "start_date" => "string",
-        "end_data" => "string",
-        "duration" => "string",
-        "mode" => "string"
+        "companyName" => "string",
+        "website" => "string"
     );
 
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\Fs;
+use App\Helpers\Mailer;
 use App\Admin\Auth;
 use App\Action\Urls\Controller;
 use App\Action\Urls\view;
@@ -42,6 +43,16 @@ class UserController extends Controller {
         $subsModel = new Subscribers;
 
         $subscribers = $subsModel->selectAll()->where(["user_id"=>$user_id]);
+
+        if($subscribers != null){
+            $subList = "";
+            for ($i=0; $i < count($subscribers); $i++) { 
+                # code...
+                $subList .= $subscribers[$i]["email"].",";
+            }
+        }
+
+
         $getCG = $cGroupModel->selectAll()->where(["user_id"=>$user_id]);
 
         for ($i=0; $i < count($getCG); $i++) { 
@@ -53,6 +64,9 @@ class UserController extends Controller {
         }
 
         $data = ["subsGroup"=>$subscribers,"groups"=>$getCG];
+        if(isset($subList)){
+            $data["subList"] = $subList;
+        }
         return view("app/blank",$data);
     }
 
@@ -132,5 +146,59 @@ class UserController extends Controller {
         }
 
         return Redirect("/user/contacts");
+    }
+
+    public function sendmail($request){
+
+        $Recips = $request->aRecipients;
+        $fName = $request->name;
+        $fEmail = $request->email;
+        $mailSubject = $request->mailSubject;
+        $mailBody = $request->mailBody;
+
+        if($Recips == "") {
+            # gather all Mails 
+            $user_id = Auth::id("user_id");
+
+            $userModel = new User;
+            $cGroupModel = new ContactGroup;
+            $subsModel = new Subscribers;
+            
+            $mails = "";
+
+            $subscribers = $subsModel->selectAll()->where(["user_id"=>$user_id]);
+            if($subscribers != null){
+                for ($i=0; $i < count($subscribers); $i++) { 
+                    # code...
+                    $mails .= $subscribers[$i]["email"].",";
+                }
+            }
+            
+            $getCG = $cGroupModel->selectAll()->where(["user_id"=>$user_id]);
+            if($getCG !== null){
+                for ($i=0; $i < count($getCG); $i++) { 
+                    # code...
+                    $mails .= $getCG[$i]["contacts"].",";
+                }
+            }
+
+            $Recips .= trim($mails,",");
+
+        }
+
+        # Start sending mail 
+        $mailer = new Mailer();
+
+        $from = $mailer->sender($fName, $fEmail);
+        $receiver = $mailer->receiver($Recips);
+        $subject = $mailer->subject($mailSubject);
+        $message = $mailer->html($mailBody);
+
+        if($mailer->send()){
+            return Content("sent");
+        }
+
+        return Content("Error");
+
     }
 }

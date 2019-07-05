@@ -130,16 +130,21 @@
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script type="text/javascript" src="/assets/libs/js/validations.js"></script>
     <script type="text/javascript" src="/libs/js/ajax.core.js"></script>
-    <script type="text/javascript" src="/assets/scripts/main.js"></script>
+    <script src="/assets/vendor/select2/js/select2.min.js"></script>
     <script type="text/javascript" src="/assets/vendor/summernote/js/summernote-bs4.js"></script>
+    <script type="text/javascript" src="/assets/scripts/main.js"></script>
     <script type="text/javascript" src="/libs/js/custom.js"></script>
     <script>
-    $(document).ready(function() {
-        $('#summernote').summernote({
-            height: 300
-
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2({ tags: true });
         });
-    });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 400
+            });
+        });
     </script>
 </body>
 </html>

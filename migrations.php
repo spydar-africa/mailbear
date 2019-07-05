@@ -10,3 +10,7 @@
 Migration::Register("User");
 Migration::Register("ContactGroup");
 Migration::Register("Subscribers");
+Migration::Register("Newsletter");
+Migration::Register("Company");
+
+#Migration::Register("UserSetting");

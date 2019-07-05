@@ -1,15 +1,25 @@
 (function(){
     
-    if($("#addVarientBtn"))
-    {
-        $("#addVarientBtn").click(function(){
-            let skeleton = $("#variationSkeleton").html();
-            $("#variationForm").append('<div class="row">'+skeleton+"</div>");
+    if($(".cGet")){
+        $(".cGet").change(function(){
+            let Contacts = $("#contacts");
+            var props = $(this).prop("checked"), val = $(this).val();
+
+            if(props == true){
+                var fvalue = Contacts.val();
+                var lastChar = fvalue.charAt((fvalue.length - 1));
+                if(lastChar === ",") {
+                    // Comma not needed
+                } else if(fvalue !== "") {
+                    // add commer at the front of the inoming
+                    val = "," + val;
+                }
+
+                Contacts.val(Contacts.val()+val);
+            } else {
+                Contacts.val(Contacts.val().replace(val,""));
+            }
         });
     }
 
-    $("#freeShipment").change(function(){
-        var state = $(this).prop("checked");
-        (state) ? $("#shippingPrice").attr("disabled","disabled") : $("#shippingPrice").removeAttr("disabled");
-    });
 })();

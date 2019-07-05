@@ -28,8 +28,9 @@ Route::get("/index", "BaseController::index");
 Route::get("/about", "BaseController::about");
 Route::get("/pricing", "BaseController::pricing");
 Route::get("/faq", "BaseController::faq");
-Route::get("/contact", "BaseController::contact");
 
+Route::get("/contact", "BaseController::contact");
+Route::post("/contact", "BaseController::contact");
 
 # Auth Routes 
 Route::get("/account/signin","AuthController::signin");
@@ -38,9 +39,20 @@ Route::get("/account/signup","AuthController::signup");
 Route::post("/account/signin","AuthController::signin");
 Route::post("/account/signup","AuthController::signup");
 
-Route::post("/base/thankyou","ContactUs::thankyou");
-
 Route::get("/account/success/w/verify","AuthController::verify");
+Route::get("/account/n/v/","AuthController::verified");
+
+Route::get("/account/n/plan/{userId:string}","AuthController::plan");
+
+Route::get("/account/n/profile/{userId:string}","AuthController::userProfile");
+Route::post("/account/n/profile/{userId:string}","AuthController::userProfile");
+
+Route::get("/account/n/company/{userId:string}","AuthController::company");
+Route::post("/account/n/company/{userId:string}","AuthController::company");
+
+# /account/n/subscribers/
+Route::get("/account/n/subscribers/{userId:string}","AuthController::subscribers");
+Route::post("/account/n/subscribers/{userId:string}","AuthController::subscribers");
 
 # App Routes [User Dashboard]
 Route::get("/user/blank","UserController::blank");
@@ -48,59 +60,9 @@ Route::get("/user/dashboard","UserController::dashboard");
 Route::get("/user/compose","UserController::compose");
 Route::get("/user/compose/new/blank","UserController::blankMail");
 
-Route::get("/user/contacts","UserController::contacts");
-Route::get("/user/contacts/add","UserController::addContacts");
-
-Route::post("/user/contacts/add","UserController::addContacts");
-
-Route::get("/user/contacts/views/{sn:int}","UserController::viewContacts");
-
-# App Routes [User Dashboard]
-Route::get("/user/blank","UserController::blank");
-Route::get("/user/dashboard","UserController::dashboard");
-Route::get("/user/compose","UserController::compose");
-Route::get("/user/compose/new/blank","UserController::blankMail");
+Route::post("/user/mailer/sendmail","UserController::sendmail");
 
 Route::get("/user/contacts","UserController::contacts");
 Route::get("/user/contacts/add","UserController::addContacts");
-
 Route::post("/user/contacts/add","UserController::addContacts");
-
 Route::get("/user/contacts/views/{sn:int}","UserController::viewContacts");
-
-//ACCOUNT SETUP
-Route::get("/op",function(){
-    return view("AccountSetup/index");
-});
-
-Route::get("/aboutbusiness",function(){
-    return view("AccountSetup/aboutyourbusiness");
-});
-
-Route::get("/inputaddress",function(){
-    return view("AccountSetup/address");
-});
-
-
-Route::get("/subscribers",function(){
-    return view("AccountSetup/subscribers");
-});
-
-Route::get("/connectyoursm",function(){
-    return view("AccountSetup/connectyoursm");
-});
-
-Route::get("/marketingpath",function(){
-    return view("AccountSetup/marketingpath");
-});
-
-Route::get("/finalizingsetup",function(){
-    return view("AccountSetup/finalsetup");
-});
-Route::get("/setpricing",function(){
-    return view("AccountSetup/setpricing");
-});
-
-Route::get("/thankyou",function(){
-    return view("base/thankyou");
-});
